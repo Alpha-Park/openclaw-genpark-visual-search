@@ -1,20 +1,53 @@
-﻿<div align="center">
-  <img src="https://img.shields.io/badge/Agent_Skills-100%25_Compatible-blue?style=for-the-badge&logo=openai" />
-  <img src="https://img.shields.io/badge/OpenClaw-Supported-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
-</div>
+# openclaw-genpark-visual-search
 
-# genpark-visual-search
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Ecosystem-blue.svg)](https://github.com/alphaparkinc/openclaw-genpark-visual-search)
+[![Zero Dependency](https://img.shields.io/badge/Dependencies-Standard_Library_Only-success.svg)](https://www.python.org/)
+[![MCP Ready](https://img.shields.io/badge/MCP-Model_Context_Protocol-orange.svg)](https://modelcontextprotocol.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Production Grade](https://img.shields.io/badge/Status-Production_Ready-brightgreen.svg)](https://github.com/Alpha-Park/openclaw-genpark-visual-search)
 
-Welcome to the **genpark-visual-search** module for the **GenPark/OpenClaw** ecosystem! 馃殌
+Production-grade agentic micro-skill designed for the OpenClaw and GenPark swarms. Built strictly using the Python standard library with zero external runtime dependencies.
 
-This skill provides capabilities for highly efficient contextual routing by LLMs. It exposes a standardized "SKILL.md" file along with structured directories.
+## Architecture & Flow
 
-## 馃洜锔?Installation & Usage
-Clone this repository into your agent framework's "skills/" directory.
-
-```bash
-cd your-agent-workspace/skills
-git clone https://github.com/alphaparkinc/openclaw-genpark-visual-search.git
+```mermaid
+flowchart TD
+    A[Agent Planner / Host] -->|Tool Invocation| B(MCP Server Entrypoint)
+    B --> C[OpenClawGenParkVisualSearch]
+    C --> D[Deterministic Mathematical Algorithms]
+    D --> E[Validated JSON Response]
+    E -->|Structured Payload| A
 ```
 
+## Features
+
+- **Standard Library Only**: 100% Python standard library with no wheels, C-extensions, or pip requirements.
+- **Model Context Protocol (MCP)**: Native FastMCP JSON-RPC interface for seamless tool-calling in Claude, Cursor, and OpenClaw.
+- **Algorithmic Rigor**: Rigorous closed-form mathematical equations and quantitative deterministic metrics.
+- **Multi-Tenant Mirrored**: Dual-deployed across `@alphaparkinc` and `@Alpha-Park`.
+
+## Installation & Usage
+
+```bash
+git clone https://github.com/Alpha-Park/openclaw-genpark-visual-search.git
+cd openclaw-genpark-visual-search
+python example_usage.py
+```
+
+## MCP Configuration
+
+Add to your `claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "openclaw-genpark-visual-search": {
+      "command": "python",
+      "args": ["-m", "openclaw-genpark-visual-search.mcp_server"]
+    }
+  }
+}
+```
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
