@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-genpark-visual-search",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark Visual Search - Perceptual difference hashing (dHash), Hamming distance similarity, and 3D color histogram Euclidean distance matching with zero dependencies.",
+  "tools": [
+    "compute_perceptual_dhash_from_matrix",
+    "calculate_hamming_distance_similarity",
+    "compare_color_histograms"
+  ]
+}
