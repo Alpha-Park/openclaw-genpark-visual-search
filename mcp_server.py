@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import OpenClawGenParkVisualSearch
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-visual-search")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-visual-search")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-visual-search')
 
 vs = OpenClawGenParkVisualSearch()
 
@@ -56,8 +47,7 @@ def compare_color_histograms(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Visual Search:")
-    print(calculate_hamming_distance_similarity("8f3a09e1b2c45d6f", "8f3a09e1b2c45d6e"))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
